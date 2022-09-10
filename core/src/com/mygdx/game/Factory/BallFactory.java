@@ -3,6 +3,7 @@ package com.mygdx.game.Factory;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.GameObjects.Ball;
+import com.mygdx.game.GameObjects.Paddle;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,18 +16,10 @@ public class BallFactory {
         for (int i = 0; i < total; i++) {
             balls.add(new Ball(r.nextInt(Gdx.graphics.getWidth()),
                     r.nextInt(Gdx.graphics.getHeight()),
-                    r.nextInt(100),
+                    20,
                     r.nextInt(15),
                     r.nextInt(15)));
         }
-    }
-
-    @Override
-    public String toString() {
-        return "BallFactory{" +
-                "balls=" + balls.size() +
-                ", r=" + r +
-                '}';
     }
 
     public BallFactory(){
@@ -43,6 +36,12 @@ public class BallFactory {
         for (Ball ball: balls) {
             ball.draw();
             ball.render(shapeRenderer);
+        }
+    }
+
+    public void collideWithPaddle(Paddle paddle){
+        if(balls.get(0).collideWith(paddle)){
+            balls.get(0).bounce();
         }
     }
 }

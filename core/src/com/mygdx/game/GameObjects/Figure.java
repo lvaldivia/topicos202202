@@ -1,7 +1,9 @@
 package com.mygdx.game.GameObjects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 
 public class Figure {
     protected int x;
@@ -13,11 +15,11 @@ public class Figure {
     protected int width;
     protected Color color = Color.WHITE;
 
-    public Figure(int x, int y, int height, int width) {
+    public Figure(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
-        this.height = height;
         this.width = width;
+        this.height = height;
     }
 
     public Figure(int x, int y) {
@@ -37,10 +39,18 @@ public class Figure {
         shapeRenderer.setColor(color);
     }
 
+    protected Rectangle getArea(){
+        return new Rectangle(this.x,this.y,this.width,this.height);
+    }
+
     protected void update(){}
 
-    protected boolean collideWith(Figure figure){
-        return true;
+    public boolean collideWith(Figure figure){
+        if(getArea().overlaps(figure.getArea())){
+            Gdx.app.log("COLISION","GAAA");
+            return true;
+        }
+        return false;
     }
 
     public int getX() {
