@@ -4,11 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.GameObjects.Ball;
 import com.mygdx.game.GameObjects.Paddle;
+import com.mygdx.game.Interface.IFactory;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class BallFactory {
+public class BallFactory implements IFactory {
     ArrayList<Ball> balls = new ArrayList<>();
     Random r = new Random();
 
@@ -32,16 +33,22 @@ public class BallFactory {
         }
     }
 
-    public void render(ShapeRenderer shapeRenderer){
-        for (Ball ball: balls) {
-            ball.draw();
-            ball.render(shapeRenderer);
-        }
-    }
-
     public void collideWithPaddle(Paddle paddle){
         if(balls.get(0).collideWith(paddle)){
             balls.get(0).bounce();
         }
+    }
+
+    @Override
+    public void render(ShapeRenderer renderer) {
+        for (Ball ball: balls) {
+            ball.draw();
+            ball.render(renderer);
+        }
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

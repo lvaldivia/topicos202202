@@ -1,6 +1,5 @@
 package com.mygdx.game.GameObjects;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -13,6 +12,7 @@ public class Figure {
     protected int ySpeed;
     protected int height;
     protected int width;
+    protected Rectangle rectangle;
     protected Color color = Color.WHITE;
 
     public Figure(int x, int y, int width, int height) {
@@ -20,6 +20,7 @@ public class Figure {
         this.y = y;
         this.width = width;
         this.height = height;
+        rectangle = new Rectangle(x,y,width,height);
     }
 
     public Figure(int x, int y) {
@@ -33,24 +34,23 @@ public class Figure {
         this.size = size;
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
+        rectangle = new Rectangle(x,y,width,height);
     }
 
     protected void draw(ShapeRenderer shapeRenderer){
+        rectangle.x = x;
+        rectangle.y = y;
         shapeRenderer.setColor(color);
     }
 
     protected Rectangle getArea(){
-        return new Rectangle(this.x,this.y,this.width,this.height);
+        return rectangle;
     }
 
     protected void update(){}
 
     public boolean collideWith(Figure figure){
-        if(getArea().overlaps(figure.getArea())){
-            Gdx.app.log("COLISION","GAAA");
-            return true;
-        }
-        return false;
+        return getArea().overlaps(figure.getArea());
     }
 
     public int getX() {
@@ -99,5 +99,29 @@ public class Figure {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rectangle rectangle) {
+        this.rectangle = rectangle;
     }
 }
