@@ -39,7 +39,7 @@ public class MenuScreen extends BaseScreen{
         btnPlay.addCaptureListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("MENU","PLAY");
+                //MyGdxGame.instance.setScreen(new GameScreen());
             }
         });
 

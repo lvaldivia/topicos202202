@@ -2,8 +2,11 @@ package com.mygdx.game.screens;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.mygdx.game.MyGdxGame;
 
 public class CreditsScreen extends BaseScreen{
 
@@ -28,6 +31,12 @@ public class CreditsScreen extends BaseScreen{
         lblCredits.setPosition(20,100);
         addActor(lblCredits);
         addActor(btnBack);
+        btnBack.addCaptureListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                MyGdxGame.instance.setScreen(new MenuScreen());
+            }
+        });
     }
 
     @Override
