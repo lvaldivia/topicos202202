@@ -5,11 +5,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
+import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.helpers.AssetsManager;
 
 public class LoadingScreen extends BaseScreen{
     private Label lblLoading;
-    public LoadingScreen() {
+
+    @Override
+    protected void init() {
         Label.LabelStyle style = new Label.LabelStyle();
         style.fontColor = Color.CORAL;
         style.font = new BitmapFont();
@@ -21,7 +24,11 @@ public class LoadingScreen extends BaseScreen{
     @Override
     protected void draw() {
         if(AssetsManager.getAssetManager().update()){
-
+            MyGdxGame.instance.setScreen(new MenuScreen());
+        }else{
+            int progress = (int)(AssetsManager.getAssetManager().getProgress() * 100);
+            lblLoading.setText("Loading... "+progress+" %");
+            Gdx.app.log("SCREEN", "MENU "+progress);
         }
     }
 }

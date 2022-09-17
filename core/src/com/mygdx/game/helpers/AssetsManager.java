@@ -23,10 +23,4 @@ public class AssetsManager {
     public static AssetManager getAssetManager() {
         return assetManager;
     }
-
-   /* public static String update(){
-        if(assetManager.update()){
-
-        }
-    }*/
 }

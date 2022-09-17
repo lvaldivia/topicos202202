@@ -11,11 +11,15 @@ import com.mygdx.game.MyGdxGame;
 public abstract class BaseScreen  implements Screen {
     protected FitViewport fitViewport;
     protected Stage stage;
+    protected boolean requiredProcessor = false;
 
     public BaseScreen(){
         fitViewport = new FitViewport(640,360);
         stage = new Stage(fitViewport);
+        init();
     }
+
+    protected abstract void init();
 
     protected void addActor(Actor actor){
         stage.addActor(actor);
@@ -39,7 +43,9 @@ public abstract class BaseScreen  implements Screen {
 
     @Override
     public void show() {
-
+        if(requiredProcessor){
+            Gdx.input.setInputProcessor(stage);
+        }
     }
 
     @Override
@@ -70,7 +76,9 @@ public abstract class BaseScreen  implements Screen {
 
     @Override
     public void hide() {
-
+        if(requiredProcessor){
+            Gdx.input.setInputProcessor(null);
+        }
     }
 
     @Override
