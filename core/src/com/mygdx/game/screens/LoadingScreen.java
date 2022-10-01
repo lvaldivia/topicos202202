@@ -6,9 +6,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.core.screens.BaseScreen;
 import com.mygdx.game.helpers.AssetsManager;
 
-public class LoadingScreen extends BaseScreen{
+public class LoadingScreen extends BaseScreen {
     private Label lblLoading;
 
     @Override

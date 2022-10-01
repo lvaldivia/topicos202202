@@ -2,7 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
 import com.mygdx.game.helpers.AssetsManager;
-import com.mygdx.game.screens.BaseScreen;
+import com.mygdx.game.core.screens.BaseScreen;
 import com.mygdx.game.screens.LoadingScreen;
 
 public class MyGdxGame extends Game {

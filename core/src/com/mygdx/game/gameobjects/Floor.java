@@ -7,11 +7,12 @@ import com.mygdx.game.core.objects.PhysicsObject;
 import com.mygdx.game.factory.physics.BodyDefFactory;
 import com.mygdx.game.factory.physics.FixtureFactory;
 
-public class Player extends PhysicsObject {
-    public Player(World world, Texture texture, Vector2 position) {
+public class Floor extends PhysicsObject {
+
+    public Floor(World world, Texture texture, Vector2 position) {
         super(world, texture, position);
-        body = world.createBody(BodyDefFactory.createPlayer());
-        fixture = FixtureFactory.createPlayerFixture(body);
+        body = world.createBody(BodyDefFactory.createFloor());
+        fixture = FixtureFactory.createFloorFixture(body);
     }
 
     @Override

@@ -9,9 +9,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.core.screens.BaseScreen;
 import com.mygdx.game.helpers.AssetsManager;
 
-public class MenuScreen extends BaseScreen{
+public class MenuScreen extends BaseScreen {
 
     private TextButton btnPlay;
     private TextButton btnCredits;

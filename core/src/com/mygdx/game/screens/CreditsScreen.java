@@ -7,8 +7,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.core.screens.BaseScreen;
 
-public class CreditsScreen extends BaseScreen{
+public class CreditsScreen extends BaseScreen {
 
     private TextButton btnBack;
     private Label lblCredits;
