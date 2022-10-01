@@ -40,7 +40,7 @@ public class CreditsScreen extends BaseScreen{
     }
 
     @Override
-    protected void draw() {
+    protected void draw(float delta) {
 
     }
 }

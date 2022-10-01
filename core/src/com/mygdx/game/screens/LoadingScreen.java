@@ -22,7 +22,7 @@ public class LoadingScreen extends BaseScreen{
     }
 
     @Override
-    protected void draw() {
+    protected void draw(float delta) {
         if(AssetsManager.getAssetManager().update()){
             MyGdxGame.instance.setScreen(new MenuScreen());
         }else{

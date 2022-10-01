@@ -39,7 +39,7 @@ public class MenuScreen extends BaseScreen{
         btnPlay.addCaptureListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                //MyGdxGame.instance.setScreen(new GameScreen());
+                MyGdxGame.instance.setScreen(new GameScreen());
             }
         });
 
@@ -53,7 +53,7 @@ public class MenuScreen extends BaseScreen{
     }
 
     @Override
-    protected void draw() {
+    protected void draw(float delta) {
 
     }
 }

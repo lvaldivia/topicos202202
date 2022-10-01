@@ -13,6 +13,11 @@ public abstract class PhysicsScreen extends BaseScreen{
     }
 
     @Override
+    protected void draw(float delta) {
+        world.step(delta,6,2);
+    }
+
+    @Override
     public void dispose() {
         super.dispose();
         world.dispose();

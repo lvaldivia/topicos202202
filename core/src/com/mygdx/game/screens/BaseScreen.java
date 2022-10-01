@@ -53,11 +53,11 @@ public abstract class BaseScreen  implements Screen {
         Gdx.gl.glClearColor(0.4f,0.5f,0.8f,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act();
-        draw();
+        draw(delta);
         stage.draw();
     }
 
-    protected abstract void draw();
+    protected abstract void draw(float delta);
 
     @Override
     public void resize(int width, int height) {
