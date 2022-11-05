@@ -10,11 +10,15 @@ public abstract class PhysicsObject extends GameObject {
     protected World world;
     protected Body body;
     protected Fixture fixture;
-    public PhysicsObject(Texture texture, Vector2 position){
+    public PhysicsObject(World world,Texture texture, Vector2 position){
         super(texture,position);
+        this.world = world;
         this.texture = texture;
         this.position = position;
+        createFixture();
     }
+
+    protected abstract void createFixture();
 
     public void destroy(){
         if(body != null){
