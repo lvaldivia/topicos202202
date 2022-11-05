@@ -20,7 +20,7 @@ public class Spike extends PhysicsObject {
 
     @Override
     protected void createFixture() {
-        body = world.createBody(PhysicsFactory.createDef(BodyDef.BodyType.StaticBody,new Vector2(50,50)));
+        body = world.createBody(PhysicsFactory.createDef(BodyDef.BodyType.DynamicBody,new Vector2(50,50)));
         Vector2[] vertices = new Vector2[3];
         vertices[0] = new Vector2(-50f,50f);
         vertices[1] = new Vector2(50f,-50f);

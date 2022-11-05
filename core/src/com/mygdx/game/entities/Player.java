@@ -20,9 +20,14 @@ public class Player extends PhysicsObject {
 
     @Override
     protected void createFixture() {
-        PolygonShape playerShape = PhysicsFactory.createShape(new Vector2(50,50));
-        body = world.createBody(PhysicsFactory.createDef(BodyDef.BodyType.DynamicBody,new Vector2(0,50)));
+        PolygonShape playerShape = PhysicsFactory.createShape(new Vector2(10,10));
+        body = world.createBody(PhysicsFactory.createDef(BodyDef.BodyType.DynamicBody,new Vector2(0,70)));
         fixture =body.createFixture(playerShape,1);
         playerShape.dispose();
+    }
+
+    public void jump(){
+        Vector2 position = body.getPosition();
+        body.applyLinearImpulse(0,150,position.x,position.y,true);
     }
 }
