@@ -30,7 +30,7 @@ public abstract class PhysicsScreen extends BaseScreen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        super.render(delta);
         world.step(delta,6,2);
         camera.update();
         if(debugging){
