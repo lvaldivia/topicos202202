@@ -25,7 +25,7 @@ public class LoadingScreen extends BaseScreen {
     @Override
     protected void draw(float delta) {
         if(AssetsManager.getAssetManager().update()){
-            MyGdxGame.instance.setScreen(new GameScreen());
+            MyGdxGame.instance.setScreen(new MenuScreen());
         }else{
             int progress = (int)(AssetsManager.getAssetManager().getProgress() * 100);
             lblLoading.setText("Loading... "+progress+" %");
