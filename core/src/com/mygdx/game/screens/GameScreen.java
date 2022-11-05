@@ -1,46 +1,49 @@
 package com.mygdx.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
-import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.mygdx.game.core.screens.PhysicsScreen;
-import com.mygdx.game.entities.Floor;
 import com.mygdx.game.entities.Player;
-import com.mygdx.game.entities.Spike;
+import com.mygdx.game.factory.FloorFactory;
+import com.mygdx.game.factory.SpikeFactory;
+import com.mygdx.game.helpers.AssetsManager;
 
 public class GameScreen extends PhysicsScreen {
 
     private Player player;
-    private Floor floor;
-    private Spike spike;
-
-
+    private FloorFactory floorFactory;
+    private SpikeFactory spikeFactory;
+    private Music music;
+    private Sound die;
+    private Sound jump;
 
     @Override
     protected void init() {
+        music = AssetsManager.getAssetManager().get("audio/song.ogg");
+        //music.play();
+        jump = AssetsManager.getAssetManager().get("audio/jump.ogg");
+        die = AssetsManager.getAssetManager().get("audio/die.ogg");
+        //jump.play();
+        die.play();
         this.debugging = true;
         this.gravity = new Vector2(0,-10);
         super.init();
         Gdx.app.log("SCREEN","GAME PHYSICS");
         player = new Player(world,null,null);
-        floor = new Floor(world,null,null);
-        spike = new Spike(world,null,null);
+        floorFactory = new FloorFactory();
+        floorFactory.addObject(world,null,null);
+        spikeFactory = new SpikeFactory();
+        spikeFactory.addObject(world,null,null);
         world.setContactListener(new ContactListener() {
             @Override
             public void beginContact(Contact contact) {
-                Fixture fixtureA = contact.getFixtureA();
-                Fixture fixtureB = contact.getFixtureB();
-                if(fixtureA == player.getFixture() && fixtureB == floor.getFixture()){
-                    Gdx.app.log("SCREEN","HUBO COLISION ENTRE PISO Y PLAYER");
-                }
 
-                if(fixtureA == spike.getFixture() && fixtureB == floor.getFixture()){
-                    Gdx.app.log("SCREEN","HUBO COLISION ENTRE PISO Y SPIKE");
-                }
             }
 
             @Override

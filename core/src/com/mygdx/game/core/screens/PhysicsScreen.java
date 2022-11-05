@@ -14,7 +14,6 @@ public abstract class PhysicsScreen extends BaseScreen {
     protected Vector2 gravity;
     protected Box2DDebugRenderer renderer;
 
-
     @Override
     protected void init() {
         world = new World(this.gravity,true);
