@@ -15,7 +15,13 @@ public abstract class BaseFactory {
         this.objects = new ArrayList<>();
     }
 
-    public abstract void addObject(World world, Texture texture, Vector2 position);
+    public void addObject(World world, Texture texture, Vector2 position){
+
+    }
+
+    public void addObject(World world, Vector2 position,List<Texture> textures, float width){
+
+    }
 
     public List<PhysicsObject> getObjects(){
         return this.objects;

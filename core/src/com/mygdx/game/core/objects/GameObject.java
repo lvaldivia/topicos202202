@@ -14,6 +14,10 @@ public abstract class GameObject extends Actor {
         this.position = position;
     }
 
+    public GameObject(Vector2 position){
+        this.position = position;
+    }
+
     @Override
     public void act(float delta) {
         super.act(delta);
